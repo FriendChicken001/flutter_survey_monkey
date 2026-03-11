@@ -1,3 +1,4 @@
+import 'package:cardx_survey_monkey/model/cardx_survey_monkey_response.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:cardx_survey_monkey/cardx_survey_monkey_platform_interface.dart';
 import 'package:cardx_survey_monkey/cardx_survey_monkey_method_channel.dart';
@@ -7,12 +8,15 @@ class MockCardxSurveyMonkeyPlatform
     with MockPlatformInterfaceMixin
     implements CardxSurveyMonkeyPlatform {
   @override
-  Future<String?> startSurveyMonkey(String hash) {
-    throw UnimplementedError();
+  Future<String?> startSurveyMonkey({
+    String? appName,
+    required String hash,
+  }) {
+    return Future.value('Mock survey result');
   }
 
   @override
-  void initSurveyListener(Function(String? p1) onResult) {
+  void initSurveyListener(Function(CardXSurveyMonkeyResponse? p1) onResult) {
     throw UnimplementedError();
   }
 }

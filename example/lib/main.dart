@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     _cardxSurveyMonkeyPlugin.initSurveyListener((result) {
-      print('Received survey result: $result');
+      print('result: ${result?.respondentId}');
     });
   }
 
@@ -33,7 +33,10 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: ElevatedButton(
             onPressed: () async {
-              final x = await _cardxSurveyMonkeyPlugin.startSurvey("C82S6K7");
+              final x = await _cardxSurveyMonkeyPlugin.startSurveyMonkey(
+                hash: "LBQK27G",
+                appName: "CardX",
+              );
               print('Survey result: $x');
             },
             child: const Text('Running'),

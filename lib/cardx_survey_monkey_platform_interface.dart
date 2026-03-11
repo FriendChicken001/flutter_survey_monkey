@@ -1,3 +1,4 @@
+import 'package:cardx_survey_monkey/model/cardx_survey_monkey_response.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'cardx_survey_monkey_method_channel.dart';
@@ -16,11 +17,14 @@ abstract class CardxSurveyMonkeyPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> startSurveyMonkey(String hash) {
-    throw UnimplementedError('surveyMonkey has not been implemented.');
+  Future<String?> startSurveyMonkey({
+    String? appName,
+    required String hash,
+  }) {
+    throw UnimplementedError('startSurveyMonkey has not been implemented.');
   }
 
-  void initSurveyListener(Function(String?) onResult) {
+  void initSurveyListener(Function(CardXSurveyMonkeyResponse?) onResult) {
     throw UnimplementedError('initSurveyListener has not been implemented.');
   }
 }
