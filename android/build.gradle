@@ -47,6 +47,7 @@ android {
 
     defaultConfig {
         minSdkVersion 21
+        consumerProguardFiles 'consumer-rules.pro'
     }
 
     dependencies {
@@ -68,7 +69,9 @@ android {
 }
 
 dependencies {
-    compileOnly 'com.surveymonkey:surveymonkey-android-sdk:3.0.0'
+    implementation("com.surveymonkey:surveymonkey-android-sdk:3.0.8") {
+        exclude group: "appman", module: "mac-ekyc-core"
+    }
 }
 
 
