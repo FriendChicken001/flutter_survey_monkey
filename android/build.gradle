@@ -51,29 +51,9 @@ android {
             useJUnitPlatform()
         }
     }
-
-    
-    packagingOptions {
-        resources {
-            excludes += [
-                    "META-INF/*.kotlin_module",
-                    "META-INF/AL2.0",
-                    "META-INF/LGPL2.1"
-            ]
-        }
-    }
-}
-
-configurations.all {
-    resolutionStrategy {
-        force "com.surveymonkey:surveymonkey-android-sdk:3.0.8"
-    }
 }
 
 dependencies {
-
-    implementation("com.surveymonkey:surveymonkey-android-sdk:3.0.8") {
-        transitive = true
-    }
-
+    api 'com.surveymonkey:surveymonkey-android-sdk:3.0.8'
 }
+
