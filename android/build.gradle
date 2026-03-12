@@ -29,6 +29,10 @@ android {
     namespace 'com.example.cardx_survey_monkey'
     compileSdk 34
 
+    packagingOptions {
+        pickFirst '**/a/a.class'
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
