@@ -69,9 +69,7 @@ android {
 }
 
 dependencies {
-    implementation("com.surveymonkey:surveymonkey-android-sdk:3.0.8") {
-        exclude group: "appman", module: "mac-ekyc-core"
-    }
+    implementation("com.surveymonkey:surveymonkey-android-sdk:3.0.7")
 }
 
 
