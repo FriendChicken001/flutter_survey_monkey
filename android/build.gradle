@@ -29,8 +29,8 @@ android {
     namespace 'com.example.cardx_survey_monkey'
     compileSdk 34
 
-    packagingOptions {
-        pickFirst '**/a/a.class'
+    defaultConfig {
+        minSdk 21
     }
 
     compileOptions {
@@ -42,11 +42,6 @@ android {
         jvmTarget = '1.8'
     }
 
-    defaultConfig {
-        minSdkVersion 21
-        consumerProguardFiles 'consumer-rules.pro'
-    }
-
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -56,10 +51,29 @@ android {
             useJUnitPlatform()
         }
     }
+
+    
+    packagingOptions {
+        resources {
+            excludes += [
+                    "META-INF/*.kotlin_module",
+                    "META-INF/AL2.0",
+                    "META-INF/LGPL2.1"
+            ]
+        }
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force "com.surveymonkey:surveymonkey-android-sdk:3.0.8"
+    }
 }
 
 dependencies {
-    compileOnly("com.surveymonkey:surveymonkey-android-sdk:3.0.0") 
-    testImplementation 'org.jetbrains.kotlin:kotlin-test'
-    testImplementation 'org.mockito:mockito-core:5.0.0'
+
+    implementation("com.surveymonkey:surveymonkey-android-sdk:3.0.8") {
+        transitive = true
+    }
+
 }
