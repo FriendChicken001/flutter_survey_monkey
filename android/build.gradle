@@ -59,10 +59,7 @@ android {
 }
 
 dependencies {
-    implementation("com.surveymonkey:surveymonkey-android-sdk:3.0.7") {
-        exclude group: "appman", module: "mac-ekyc-core"
-    }
-
+    compileOnly("com.surveymonkey:surveymonkey-android-sdk:3.0.0") 
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     testImplementation 'org.mockito:mockito-core:5.0.0'
 }
